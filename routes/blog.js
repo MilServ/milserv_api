@@ -13,7 +13,7 @@ const {
 } = require("../controllers/blog");
 const { requireSignin, adminMiddleware } = require("../controllers/auth");
 
-router.post("/blog", requireSignin, adminMiddleware, create);
+router.post("/blog", requireSignin, create);
 router.get("/blogs", list);
 router.post("/blogs-categories-tags", listAllBlogsCategoriesTags);
 router.get("/blog/:slug", read);
