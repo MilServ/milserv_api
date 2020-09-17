@@ -1,48 +1,47 @@
 const mongoose = require("mongoose");
 
-const veteranSchema = new mongoose.Schema({
-  lastName: {
+const makerSchema = new mongoose.Schema({
+  makerLastName: {
     type: String,
     trim: true,
     required: true,
     max: 32,
   },
-  firstName: {
+  makerFirstName: {
     type: String,
     trim: true,
     required: true,
     max: 32,
   },
-  currentLocation: {
-    type: String,
-    trim: true,
-    required: true,
-  },
-  projectedHOR: {
-    type: String,
-    trim: true,
-  },
-  email: {
+  makerEmail: {
     type: String,
     trim: true,
     required: true,
     unique: true,
     lowercase: true,
   },
-  milAffiliation: {
-    type: Number,
-    default: 0,
+  makerLicState: {
+    type: Array,
     required: true,
   },
-  careerInterest: {
-    type: Number,
-    default: 0,
+  makerStateLicNo: {
+    type: String,
+    trim: true,
   },
-  additionalInfo: {
+  makerCoName: {
+    type: String,
+    trim: true,
+    required: true,
+  },
+  makerPhoneNumber: {
+    type: String,
+    pattern: "^([0-9]{3}-[0-9]{3}-[0-9]{4}$",
+  },
+  makerAdditionalInfo: {
     type: {},
     max: 2000000,
   },
   date: { type: Date, default: Date.now },
 });
 
-module.exports = mongoose.model("Veteran", veteranSchema);
+module.exports = mongoose.model("Maker", makerSchema);
