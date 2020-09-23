@@ -28,7 +28,7 @@ const veteranRoutes = require("./routes/veteran");
 const retailerRoutes = require("./routes/retailer");
 const distributorRoutes = require("./routes/distributor");
 const makersRoutes = require("./routes/maker");
-const formRoutes = require("./routes/form");
+const sendMail = require("./routes/mail");
 
 //app
 const app = express();
@@ -62,7 +62,18 @@ app.use("/api", veteranRoutes);
 app.use("/api", retailerRoutes);
 app.use("/api", distributorRoutes);
 app.use("/api", makersRoutes);
-app.use("/api", formRoutes);
+
+//Contact Form email route using Mailgun
+app.post("/api/contact", (req, res) => {
+  const { name, email, message } = req.body;
+  sendMail(name, email, message, function (err, data) {
+    if (err) {
+      res.status(500).json({ message: "Internal Error" });
+    } else {
+      res.json({ message: "Email received" });
+    }
+  });
+});
 
 //port
 const port = process.env.PORT || 8000;
