@@ -28,7 +28,7 @@ const veteranRoutes = require("./routes/veteran");
 const retailerRoutes = require("./routes/retailer");
 const distributorRoutes = require("./routes/distributor");
 const makersRoutes = require("./routes/maker");
-const sendMail = require("./routes/mail");
+const sendMail = require("./routes/contact");
 
 //app
 const app = express();
