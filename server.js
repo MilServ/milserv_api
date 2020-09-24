@@ -70,7 +70,7 @@ app.post("/api/contact", (req, res) => {
     if (err) {
       res.status(500).json({ message: "Internal Error" });
     } else {
-      res.json({ message: "Email received" });
+      res.json({ success: true });
     }
   });
 });
