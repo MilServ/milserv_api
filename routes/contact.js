@@ -12,7 +12,7 @@ const transporter = nodemailer.createTransport(mailGun(auth));
 const sendMail = (name, email, message, cb) => {
   // console.log(name, email + "Inside sendMail");
   const mailOptions = {
-    from: "juan.rivera@milserv.com",
+    from: "juancodeatatime@gmail.com",
     to: "david.jones@acdmilserve.com",
     subject: `Contact form - ${process.env.APP_NAME}`,
     // text: `Email received from Sender name: ${name} \n Sender email: ${email} \n Sender message: ${message}`,
